@@ -1,0 +1,85 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = []
+readme = "README.md"
+packages = [{ include = "app" }]
+
+[tool.poetry.dependencies]
+python = "~3.11.0"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.2.0"
+pytest-cov = "^6.0.0"
+pylint = "^3.0.3"
+
+[tool.poetry.group.lint]
+optional = true
+
+[tool.poetry.group.lint.dependencies]
+flake8 = "^7.0.0"
+isort = "^5.12.0"
+black = "^24.0.0"
+pylint = "^3.0.3"
+astroid = "^3.0.2"
+mypy = "^1.9.0"
+
+[tool.pytest.ini_options]
+addopts = "--disable-warnings"
+testpaths = ["tests"]
+filterwarnings = ["error::UserWarning"]
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.isort]
+profile = "black"
+
+[tool.pylint.main]
+jobs = 0
+
+[tool.pylint.messages_control]
+disable = [
+  "missing-module-docstring",
+  "missing-function-docstring",
+  "line-too-long",
+  "missing-class-docstring",
+  "c-extension-no-member",
+  "too-few-public-methods",
+  "no-member",
+  "fixme",
+  "unused-argument",
+  "protected-access",
+  "too-many-arguments",
+  "no-name-in-module",
+  "too-many-locals",
+  "import-error",
+  "import-outside-toplevel",
+  "too-many-function-args",
+  "arguments-differ",
+  "unspecified-encoding",
+  "redefined-builtin",
+  "arguments-renamed",
+  "raise-missing-from",
+  "too-many-ancestors",
+  "abstract-method",
+  "broad-exception-caught",
+  "too-many-instance-attributes",
+  "too-many-positional-arguments",
+  "too-many-statements",
+  "redefined-outer-name",
+  "duplicate-code",
+]
+
+[tool.pylint.reports]
+score = "no"
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
