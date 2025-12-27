@@ -1,0 +1,4 @@
+python 3.11.11 # datasource=github-tags depName=python/cpython
+poetry 2.0.1 # datasource=pypi depName=poetry
+nodejs 20.17.0 # Dependency for markdownlint-cli2
+markdownlint-cli2 0.17.1 # datasource=github-tags depName=DavidAnson/markdownlint-cli2
